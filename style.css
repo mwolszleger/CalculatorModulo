@@ -1,0 +1,47 @@
+body{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background:Gainsboro;
+}
+.navbar  .container-fluid .navbar-header .navbar-toggle .glyphicon{
+	color:white;
+}
+
+.navbar-brand, .navbar-nav li a {
+    line-height: 64px;
+    height: 64px;
+    padding-top: 0;
+}
+img{
+	padding-right:10px;
+}
+
+.panel-default{
+	margin:auto;
+	width:80%;
+}
+
+input{
+direction:RTL;
+    padding: 8px 6px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#display{
+	width: 70%;
+	margin-right:10px;
+}
+#modulo{
+	width:20%;
+}
+#inputs{
+	text-align: center;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+}

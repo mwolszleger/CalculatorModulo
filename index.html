@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" >
-	<title>Plan zajęć</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" >	
+	<title>Calculator Modulo</title>
+	<link rel="icon" href="calc_favicon.png">	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="calculate.js"></script>
-
+	<script type="text/javascript" src="page_handling.js"></script>	
 </head>
-	
 <body>
-</body>
 
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>                       
+      </button>
+	  <a href="#" class="navbar-left"><img src="calculator.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">	  
+        <li class="active"><a onclick="changePage(event)" href="#">Calculator</a></li>
+        <li><a onclick="changePage(event)" href="#">Game</a></li>
+        <li><a onclick="changePage(event)" href="#">Temporary assumptions</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="panel panel-default">
+	<div class="panel-heading">Modulo Calculator</div>
+	<div class="panel-body">
+		<div id="inputs">
+			<input type="text" id="display" value="0">
+			<input type="text" maxlength="2" value="0" id="modulo">
+		</div>
+	</div>
+
+</div>
+
+</body>
 </html>
