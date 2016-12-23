@@ -11,8 +11,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="calculate.js"></script>
 	<script type="text/javascript" src="page_handling.js"></script>	
+	<script type="text/javascript" src="buttons_handling.js"></script>	
 </head>
-<body>
+<body onload="initialize();">
 
 <nav class="navbar navbar-inverse navbar-static-top">
   <div class="container-fluid">
@@ -24,7 +25,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">	  
-        <li class="active"><a onclick="changePage(event)" href="#">Calculator</a></li>
+        <li class="active"><a onclick="changePage(event)" href="index.html">Calculator</a></li>
         <li><a onclick="changePage(event)" href="#">Game</a></li>
         <li><a onclick="changePage(event)" href="#">Temporary assumptions</a></li>
       </ul>
@@ -35,10 +36,41 @@
 <div class="panel panel-default">
 	<div class="panel-heading">Modulo Calculator</div>
 	<div class="panel-body">
-		<div id="inputs">
-			<input type="text" id="display" value="0">
-			<input type="text" maxlength="2" value="0" id="modulo">
+		<div id="inputs">			
+			<div onclick="changeInput(event);" class="display-field-prefix">display:</div><input type="text" onClick="this.select();" id="display" value="0">
+			<div onclick="changeInput(event);" class="n-field-prefix">N:</div><input type="text" onClick="this.select();" maxlength="2" id="modulo" value="0">
 		</div>
+		<div id="numbers">
+			<button onclick="performOperationClick(event);" type="button">+</button>
+			<button onclick="performOperationClick(event);" type="button">-</button>
+			<button onclick="performOperationClick(event);" type="button">*</button>
+			<button onclick="performOperationClick(event);" type="button">=</button>
+		</div>
+		<div id="numbers">
+			<button onclick="performNumberClick(event);" type="button">7</button>
+			<button onclick="performNumberClick(event);" type="button">8</button>
+			<button onclick="performNumberClick(event);" type="button">9</button>
+			<button onclick="performOperationClick(event);" type="button">pow</button>			
+		</div>
+		<div id="numbers">
+			<button onclick="performNumberClick(event);" type="button">4</button>
+			<button onclick="performNumberClick(event);" type="button">5</button>
+			<button onclick="performNumberClick(event);" type="button">6</button>
+			<button onclick="performOperationClick(event);" type="button">-x</button>			
+		</div>	
+		<div id="numbers">
+			<button onclick="performNumberClick(event);" type="button">1</button>
+			<button onclick="performNumberClick(event);" type="button">2</button>
+			<button onclick="performNumberClick(event);" type="button">3</button>
+			<button onclick="performOperationClick(event);" type="button">1/x</button>				
+		</div>					
+		<div id="numbers">
+			<button onclick="performNumberClick(event);" type="button">0</button>
+			<button onclick="performCommaClick(event);" type="button">,</button>
+			<button onclick="performOperationClick(event);" type="button"><-</button>
+			<button onclick="performOperationClick(event);" type="button">Clear</button>			
+		</div>
+			
 	</div>
 
 </div>
