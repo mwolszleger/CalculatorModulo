@@ -1,0 +1,112 @@
+body{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background:Gainsboro;
+}
+.navbar  .container-fluid .navbar-header .navbar-toggle .glyphicon{
+	color:white;
+}
+
+.navbar-brand, .navbar-nav li a {
+    line-height: 64px;
+    height: 64px;
+    padding-top: 0;
+	padding-bottom:0;
+}
+
+img{
+	padding-right:10px;
+}
+
+.panel-default{
+	margin:auto;
+	width:90%;
+}
+
+input{
+	text-align:right;
+    padding: 8px 6px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+	border-width: 1px 1px 1px 0;
+    border-radius: 0px 4px 4px 0px;
+    box-sizing: border-box;
+}
+
+#display{
+	width: 55%;
+	margin-right:10px;
+}
+#modulo{
+	width:15%;
+}
+#inputs, #numbers{
+	text-align: center;
+}
+#numbers{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+
+button:not(.navbar-toggle) {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50; /* Green */
+	border-radius: 2px;
+	padding: 8px 12px;
+	width: 90px !important;
+}
+
+.input-focus {
+    border: 2px solid #4CAF50;
+    border-radius: 2px;
+}
+
+.display-field-prefix, .n-field-prefix{
+    display: inline-block;
+    text-align: center;
+    background: #eaeaea;
+    width: 70px;
+	padding: 8px 12px;    
+    border: 1px solid #ccc;
+	border-right: 0px solid transparent;
+	padding-left:4px;
+	border-width: 1px 0 1px 1px;
+    border-radius: 4px 0 0 4px;
+}
+.n-field-prefix{
+	width: 40px;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+.panel-default{
+	margin:auto;
+	width:100%;
+}
+.navbar {
+    margin-bottom: 0;
+}
+
+button {
+	width: 90px !important;
+}
+.display-field-prefix, .n-field-prefix, input{
+	font-size:12px;
+}
+.display-field-prefix{
+	width:55px;
+}
+.n-field-prefix{
+	width:20px;
+}
+#display{
+	width:50%;
+}
+#modulo{
+	width:15%;
+}
+}
