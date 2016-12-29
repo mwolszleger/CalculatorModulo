@@ -17,9 +17,11 @@ function changePage(event)
 		event.target.parentElement.className = "active";
 
 		if(event.target.innerHTML == "Game")
-		{
+        {
+            displayGame();      
+
 		}
-		else
+        else if (event.target.innerHTML == "Temporary assumptions")
 		{
 			document.getElementsByClassName("panel-heading")[0].innerHTML = "Assumptions:";
 			document.getElementsByClassName("panel-body")[0].innerHTML = "Kalkulator:<br><font color=\"green\">+</font><br><font color=\"green\">-</font><br><font color=\"green\">*</font><br>odwrotny<br>potęga<br>przeciwny<br><font color=\"green\">pole na podanie n</font><br>Clear<br>Backspace<br><font color=\"green\">Konkurs</font><br>";
