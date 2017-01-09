@@ -5,7 +5,7 @@ function modulo(a, n) {
 	}
 	else
 	{
-		return arguments.callee(a+n,n)
+		return a%n+n
 	}
 }
 
