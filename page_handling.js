@@ -1,6 +1,7 @@
 var display_element;
 var modulo_element;
 var first_number = true;
+var matrix_size = 3;
 
 function initialize() 
 {
@@ -9,6 +10,15 @@ function initialize()
         display_element = document.getElementById("display");
 		modulo_element = document.getElementById("modulo");
     }
+	/*var as = document.getElementsByTagName("a");
+
+	for(var i = 0;i<as.length;i++)
+	{
+		if(as[i].innerHTML == "Matrices")
+		{
+			as[i].click();
+		}
+	}*/
 }
 
 function changePage(event)
@@ -19,7 +29,11 @@ function changePage(event)
 		if(event.target.innerHTML == "Game")
         {
             displayGame();      
-
+		}
+		else if(event.target.innerHTML == "Matrices")
+		{
+			displayMatrices();	
+			initializeMatrix();
 		}
         else if (event.target.innerHTML == "Temporary assumptions")
 		{
@@ -40,4 +54,53 @@ function changeInput(ev)
 		display_element.className = "";
 		modulo_element.className = "input-focus";
 	}
+}
+
+function displayMatrices()
+{
+	document.getElementsByClassName("panel-heading")[0].innerHTML = "Matrices";
+    document.getElementsByClassName("panel-body")[0].innerHTML = "<div id=\"whole\"><div id=\"matrix\"></div><button onclick=\"addLevel();\">+</button><button onclick=\"eraseLevel();\">-</button></div>";
+}
+
+function addLevel()
+{
+	if(matrix_size==5)
+		return false;
+	
+	var inputs = document.getElementsByTagName("input");
+
+	for(var i = -1; i<matrix_size*matrix_size-1;)
+	{		
+		i+=matrix_size;
+		var input = document.createElement("input");
+		input.className = "matrix-input";
+		inputs[i].parentNode.insertBefore(input, inputs[i].nextSibling);
+	}
+	matrix_size++;
+	var matrixDiv = document.getElementById("matrix");
+
+	for(var i = 0; i<matrix_size;i++)
+	{
+		matrixDiv.innerHTML += "<input class=\"matrix-input\" type=\"text\"></input>";
+	}
+	matrixDiv.innerHTML += "</br>";	
+}
+function initializeMatrix()
+{
+	var matrixDiv = document.getElementById("matrix");
+	for(var i = 0;i<matrix_size;i++)
+	{
+		for(var j = 0; j<matrix_size;j++)
+			matrixDiv.innerHTML += "<input class=\"matrix-input\" type=\"text\"></input>";
+		matrixDiv.innerHTML += "</br>";
+	}
+}
+
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function eraseLevel()
+{
+	
 }

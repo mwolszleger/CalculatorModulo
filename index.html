@@ -28,6 +28,7 @@
       <ul class="nav navbar-nav">	  
         <li class="active"><a onclick="changePage(event)" href="index.html">Calculator</a></li>
         <li><a onclick="changePage(event)" href="#">Game</a></li>
+		<li><a onclick="changePage(event)" href="#">Matrices</a></li>
         <li><a onclick="changePage(event)" href="#">Temporary assumptions</a></li>
       </ul>
     </div>
@@ -42,9 +43,8 @@
 			<div onclick="changeInput(event);" class="n-field-prefix">N:</div><input type="text" onClick="this.select();" maxlength="2" id="modulo" value="0">
 		</div>
 		<div id="numbers">
-			<button onclick="performOperationClick(event);" type="button">+</button>
-			<button onclick="performOperationClick(event);" type="button">-</button>
-			<button onclick="performOperationClick(event);" type="button">*</button>
+			<button onclick="backspaceClick();" id="button-first-row" type="button">Backspace</button>
+			<button onclick="clearClick();" id="button-first-row" type="button">Clear</button>	
 			<button onclick="performOperationClick(event);" type="button">=</button>
 		</div>
 		<div id="numbers">
@@ -67,13 +67,14 @@
 		</div>					
 		<div id="numbers">
 			<button onclick="performNumberClick(event);" type="button">0</button>
-			<button onclick="performCommaClick(event);" type="button">,</button>
-			<button onclick="performOperationClick(event);" type="button"><-</button>
-			<button onclick="performOperationClick(event);" type="button">Clear</button>			
+			<button onclick="performOperationClick(event);" type="button">+</button>
+			<button onclick="performOperationClick(event);" type="button">-</button>
+			<button onclick="performOperationClick(event);" type="button">*</button>
+					
 		</div>
 			
 	</div>
-
+</br>
 </div>
 
 </body>
