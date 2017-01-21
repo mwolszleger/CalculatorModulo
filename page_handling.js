@@ -59,7 +59,7 @@ function changeInput(ev)
 function displayMatrices()
 {
 	document.getElementsByClassName("panel-heading")[0].innerHTML = "Matrices";
-    document.getElementsByClassName("panel-body")[0].innerHTML = "<div id=\"whole\"><div id=\"matrix\"></div><button onclick=\"addLevel();\">+</button><button onclick=\"eraseLevel();\">-</button></div>";
+    document.getElementsByClassName("panel-body")[0].innerHTML = "<div id=\"whole\"><input type=\"text\"  id=\"n\" value=\"n\"><div id=\"matrix\"></div><button onclick=\"addLevel();\">+</button><button onclick=\"eraseLevel();\">-</button><button onclick=\"calculateDetInv();\">calculate</button><div id=\"matrixText\"></div><div id=\"inverse\"></div></div>";
 }
 
 function addLevel()
@@ -67,7 +67,7 @@ function addLevel()
 	if(matrix_size==5)
 		return false;
 	
-	var inputs = document.getElementsByTagName("input");
+	var inputs = document.getElementsByClassName("matrix-input");
 
 	for(var i = -1; i<matrix_size*matrix_size-1;)
 	{		
@@ -101,7 +101,7 @@ function eraseLevel()
 {
 	if(matrix_size==2)
 		return false;
-	var inputs = document.getElementsByTagName("input");
+	var inputs = document.getElementsByClassName("matrix-input");
 	var brElement = document.getElementsByTagName("br")[parseInt(matrix_size-1)];
 	brElement.parentNode.removeChild(brElement);
 	for(var i = -1;;)
