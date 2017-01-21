@@ -40,14 +40,13 @@ input{
 #modulo{
 	width:15%;
 }
-#inputs, #numbers{
+#inputs, #numbers, #whole{
 	text-align: center;
 }
 #numbers{
 	display:flex;
 	align-items: center;
 	justify-content: center;
-	
 }
 
 button:not(.navbar-toggle) {
@@ -57,6 +56,10 @@ button:not(.navbar-toggle) {
 	border-radius: 2px;
 	padding: 8px 12px;
 	width: 90px !important;
+}
+
+#button-first-row{
+	width: 135px !important;	
 }
 
 .input-focus {
@@ -78,6 +81,12 @@ button:not(.navbar-toggle) {
 }
 .n-field-prefix{
 	width: 40px;
+}
+
+.matrix-input {
+	width: 40px;
+    border: none;
+    border-bottom: 1px solid darkgreen;
 }
 
 
