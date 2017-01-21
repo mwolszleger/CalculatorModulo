@@ -96,11 +96,25 @@ function initializeMatrix()
 	}
 }
 
-function insertAfter(referenceNode, newNode) {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
 
 function eraseLevel()
 {
-	
+	if(matrix_size==2)
+		return false;
+	var inputs = document.getElementsByTagName("input");
+	var brElement = document.getElementsByTagName("br")[parseInt(matrix_size-1)];
+	brElement.parentNode.removeChild(brElement);
+	for(var i = -1;;)
+	{		
+		i+=matrix_size;
+		
+		if(i>matrix_size*matrix_size -matrix_size)
+			break;
+		inputs[i].parentNode.removeChild(inputs[i--]);
+	}
+	matrix_size=matrix_size - 1;
+	for(var i = 0;i<matrix_size;i++)
+	{
+		inputs[inputs.length-1].parentNode.removeChild(inputs[inputs.length-1]);
+	}
 }

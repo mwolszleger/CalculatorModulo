@@ -84,9 +84,12 @@ button:not(.navbar-toggle) {
 }
 
 .matrix-input {
+	border-radius: 0 0 0 0;
 	width: 40px;
     border: none;
     border-bottom: 1px solid darkgreen;
+	border-right: 1px solid darkgreen;
+	background:WhiteSmoke;
 }
 
 
