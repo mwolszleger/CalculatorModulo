@@ -1,4 +1,41 @@
-
+function calculateDetInv()
+{
+	var matrix=new Array(matrix_size);
+	for(var i=0;i<matrix_size;i++){
+		matrix[i]=new Array(matrix_size);
+	}
+	var n=parseInt($('#n').val());
+	var inputs=document.getElementsByClassName('matrix-input');
+	for(var i=0;i<matrix_size;i++)
+		for(var j=0;j<matrix_size;j++){
+			matrix[i][j]=parseInt(inputs[matrix_size*i+j].value);
+		}
+	var det=determinant(matrix,n);
+	$('#matrixText').text(det);
+	if(GCD(det,n)>1)
+	{
+		$('#inverse').text("Macierz odwrotna nie istnieje");
+		return;
+	}
+	
+	
+	var inverse=inverseMatrix(matrix, n);
+	var matrixText="\\(\\begin{pmatrix}";
+	for(var i=0;i<matrix_size;i++){
+		for(var j=0;j<matrix_size;j++){
+			matrixText+=inverse[i][j];
+			if(j!=matrix_size-1)
+				matrixText+="&";
+		}
+		if(i!=matrix_size-1)
+				matrixText+="\\\\";
+	}
+	matrixText+="\\end{pmatrix}\\)";
+	
+	$('#inverse').text(matrixText);
+	MathJax.Hub.Queue(["Typeset",MathJax.Hub,"inverse"]);
+	
+}
 function determinant(matrix, n) {
 
     if (matrix.length == 2) {
@@ -27,6 +64,7 @@ function determinant(matrix, n) {
 
             if (i % 2 == 0)
                 det = addition(det, temDet, n);
+			
             else
                 det = subtraction(det, temDet, n);
 
