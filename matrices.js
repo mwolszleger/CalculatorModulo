@@ -121,7 +121,7 @@ function isFilled()
 	{
         for(j = 0; j < matrix_size; j++) 
 		{
-			if(typeof(inputs[matrix_size*i+j].value) !== Number)
+			if(isNaN(parseFloat(inputs[matrix_size*i+j].value)))
 			{
 				inputs[matrix_size*i+j].style.border = "1px solid red";
 				flag = false;
