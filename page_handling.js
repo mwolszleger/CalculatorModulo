@@ -10,7 +10,7 @@ function initialize()
         display_element = document.getElementById("display");
 		modulo_element = document.getElementById("modulo");
     }
-	/*var as = document.getElementsByTagName("a");
+	var as = document.getElementsByTagName("a");
 
 	for(var i = 0;i<as.length;i++)
 	{
@@ -18,7 +18,7 @@ function initialize()
 		{
 			as[i].click();
 		}
-	}*/
+	}
 }
 
 function changePage(event)
@@ -59,21 +59,31 @@ function changeInput(ev)
 function displayMatrices()
 {
 	document.getElementsByClassName("panel-heading")[0].innerHTML = "Matrices";
-    document.getElementsByClassName("panel-body")[0].innerHTML = "<div id=\"whole\"><input type=\"text\"  id=\"n\" value=\"n\"><div id=\"matrix\"></div><button onclick=\"addLevel();\">+</button><button onclick=\"eraseLevel();\">-</button><button onclick=\"calculateDetInv();\">calculate</button><div id=\"matrixText\"></div><div id=\"inverse\"></div></div>";
+    document.getElementsByClassName("panel-body")[0].innerHTML = "<div id=\"whole\"><div class=\"n-field-prefix\">N:</div><input type=\"text\"  id=\"n\" value=\"0\"><div id=\"matrix\"></div><button onclick=\"addLevel();\">+</button><button onclick=\"eraseLevel();\">-</button><button onclick=\"calculateDetInv();\">calculate</button><div id=\"matrixText\"></div><div id=\"inverse\"></div></div>";
 }
 
 function addLevel()
-{
+{	
 	if(matrix_size==5)
 		return false;
 	
 	var inputs = document.getElementsByClassName("matrix-input");
+	var varArr = [];
+    for(i = 0; i < matrix_size; i++) 
+	{
+        varArr[i] = [];
+        for(j = 0; j < matrix_size; j++) 
+		{
+            varArr[i][j] = inputs[matrix_size*i+j].value;
+        }
+    }
 
 	for(var i = -1; i<matrix_size*matrix_size-1;)
 	{		
 		i+=matrix_size;
 		var input = document.createElement("input");
 		input.className = "matrix-input";
+		input.setAttribute('onfocus','changeMatrixInputStyleOnFocus(this)');
 		inputs[i].parentNode.insertBefore(input, inputs[i].nextSibling);
 	}
 	matrix_size++;
@@ -81,9 +91,16 @@ function addLevel()
 
 	for(var i = 0; i<matrix_size;i++)
 	{
-		matrixDiv.innerHTML += "<input class=\"matrix-input\" type=\"text\"></input>";
-	}
+		matrixDiv.innerHTML += "<input class=\"matrix-input\" onfocus=\"changeMatrixInputStyleOnFocus(this)\" type=\"text\"></input>";
+	}	
 	matrixDiv.innerHTML += "</br>";	
+	for(i = 0; i < matrix_size-1; i++) 
+	{
+        for(j = 0; j < matrix_size-1; j++) 
+		{
+            inputs[matrix_size*i+j].value = varArr[i][j];
+        }
+    }
 }
 function initializeMatrix()
 {
@@ -91,7 +108,7 @@ function initializeMatrix()
 	for(var i = 0;i<matrix_size;i++)
 	{
 		for(var j = 0; j<matrix_size;j++)
-			matrixDiv.innerHTML += "<input class=\"matrix-input\" type=\"text\"></input>";
+			matrixDiv.innerHTML += "<input class=\"matrix-input\" onfocus=\"changeMatrixInputStyleOnFocus(this)\" type=\"text\"></input>";
 		matrixDiv.innerHTML += "</br>";
 	}
 }
