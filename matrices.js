@@ -6,17 +6,28 @@ function calculateDetInv()
 	for(var i=0;i<matrix_size;i++){
 		matrix[i]=new Array(matrix_size);
 	}
+	if(parseInt($('#n').val())!=$('#n').val()||parseInt($('#n').val())<=1||parseInt($('#n').val())>9999999)
+	{
+		errorN();
+		return;
+		
+	}
 	var n=parseInt($('#n').val());
 	var inputs=document.getElementsByClassName('matrix-input');
 	for(var i=0;i<matrix_size;i++)
 		for(var j=0;j<matrix_size;j++){
+			if(parseInt(inputs[matrix_size*i+j].value)!=inputs[matrix_size*i+j].value||parseInt(inputs[matrix_size*i+j].value)<-9999999||parseInt(inputs[matrix_size*i+j].value)>9999999)
+			{
+				errorMatrix();
+				return;				
+			}			
 			matrix[i][j]=parseInt(inputs[matrix_size*i+j].value);
 		}
 	var det=determinant(matrix,n);
-	$('#matrixText').text(det);
+	$('#matrixText').text("Determinant: "+det);
 	if(GCD(det,n)>1)
 	{
-		$('#inverse').text("Macierz odwrotna nie istnieje");
+		$('#inverse').text("Inverse matrix does not exists");
 		return;
 	}
 		
@@ -135,4 +146,12 @@ function changeMatrixInputStyleOnFocus(el)
 	el.style.border = "none";
 	el.style.borderBottom = "1px solid darkgreen";
 	el.style.borderRight= "1px solid darkgreen";
+}
+function errorMatrix()
+{
+	alert("Incorrect data in matrix");
+}
+function errorN()
+{
+	alert("Incorrect n");
 }
