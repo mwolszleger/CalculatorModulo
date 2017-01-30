@@ -33,12 +33,14 @@ input{
     box-sizing: border-box;
 }
 
+
+
 #display{
-	width: 55%;
+	width: 50%;
 	margin-right:10px;
 }
 #modulo{
-	width:15%;
+	width:20%;
 }
 #inputs, #numbers, #whole{
 	text-align: center;
@@ -64,6 +66,11 @@ button:not(.navbar-toggle) {
 
 .input-focus {
     border: 2px solid #4CAF50;
+    border-radius: 2px;
+}
+
+.input-alert{
+	border: 2px solid red;
     border-radius: 2px;
 }
 
