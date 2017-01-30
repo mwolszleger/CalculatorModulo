@@ -8,7 +8,7 @@
 }
 $query =  "select * from level1 where player is not null";
 $row=$conn->query($query)->fetchAll();
-echo '<table>
+echo '<table class=\'table\'>
 <tr><th>n</th><th>p</th><th>q</th><th>player</th></tr>
 ';
 foreach ($row as &$value) {
