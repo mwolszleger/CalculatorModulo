@@ -30,7 +30,6 @@
         <li class="active"><a onclick="changePage(event)" href="index.html">Calculator</a></li>
         <li><a onclick="changePage(event)" href="#">Game</a></li>
 		<li><a onclick="changePage(event)" href="#">Matrices</a></li>
-        <li><a onclick="changePage(event)" href="#">Temporary assumptions</a></li>
       </ul>
     </div>
   </div>
@@ -40,8 +39,8 @@
 	<div class="panel-heading">Modulo Calculator</div>
 	<div class="panel-body">
 		<div id="inputs">			
-			<div onclick="changeInput(event);" class="display-field-prefix">display:</div><input type="text" onClick="this.select();" id="display" value="0">
-			<div onclick="changeInput(event);" class="n-field-prefix">N:</div><input type="text" onClick="this.select();" maxlength="2" id="modulo" value="0">
+			<div onclick="changeInput(event);" class="display-field-prefix" data-name="display">display:</div><input type="number" onfocus="changeInput(event);" onClick="this.select();" id="display" value="0" data-name="display">
+			<div onclick="changeInput(event);" class="n-field-prefix" data-name="modulo">N:</div><input type="number" onfocus="changeInput(event);" onClick="this.select();" maxlength="5" id="modulo" value="0" data-name="modulo">
 		</div>
 		<div id="numbers">
 			<button onclick="backspaceClick();" id="button-first-row" type="button">Backspace</button>

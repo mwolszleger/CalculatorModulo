@@ -35,16 +35,12 @@ function changePage(event)
 			displayMatrices();	
 			initializeMatrix();
 		}
-        else if (event.target.innerHTML == "Temporary assumptions")
-		{
-			document.getElementsByClassName("panel-heading")[0].innerHTML = "Assumptions:";
-			document.getElementsByClassName("panel-body")[0].innerHTML = "Kalkulator:<br><font color=\"green\">+</font><br><font color=\"green\">-</font><br><font color=\"green\">*</font><br>odwrotny<br>potęga<br>przeciwny<br><font color=\"green\">pole na podanie n</font><br>Clear<br>Backspace<br><font color=\"green\">Konkurs</font><br>";
-		}
   }
+  
   
 function changeInput(ev)
 {
-	if(ev.target.innerHTML == "display:")
+	if(ev.target.getAttribute("data-name") == "display")
 	{
 		display_element.className = "input-focus";
 		modulo_element.className = "";
