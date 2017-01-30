@@ -16,7 +16,7 @@ function initialize()
 	{
 		if(as[i].innerHTML == "Matrices")
 		{
-			as[i].click();
+			//as[i].click();
 		}
 	}
 }
@@ -58,8 +58,10 @@ function changeInput(ev)
 
 function displayMatrices()
 {
-	document.getElementsByClassName("panel-heading")[0].innerHTML = "Matrices";
-    document.getElementsByClassName("panel-body")[0].innerHTML = "<div id=\"whole\"><div class=\"n-field-prefix\">N:</div><input type=\"text\"  id=\"n\" value=\"0\"><div id=\"matrix\"></div><button onclick=\"addLevel();\">+</button><button onclick=\"eraseLevel();\">-</button><button onclick=\"calculateDetInv();\">calculate</button><div id=\"matrixText\"></div><div id=\"inverse\"></div></div>";
+	document.getElementsByClassName("panel-heading")[0].innerHTML = "Calculate determinant and inverse matrix modulo n";
+    document.getElementsByClassName("panel-body")[0].innerHTML = "<div id=\"whole\"><div class=\"n-field-prefix\">N:</div><input type=\"number\"id=\"n\"  value=\"2\"><div id=\"matrix\"></div><button onclick=\"addLevel();\">+</button><button onclick=\"eraseLevel();\">-</button><button onclick=\"calculateDetInv();\">calculate</button><div id=\"matrixText\"></div><div id=\"inverse\"></div></div>";
+	document.getElementById('n').setAttribute('onfocus','changeNStyleOnFocus(this)');
+	
 }
 
 function addLevel()
@@ -84,6 +86,8 @@ function addLevel()
 		var input = document.createElement("input");
 		input.className = "matrix-input";
 		input.setAttribute('onfocus','changeMatrixInputStyleOnFocus(this)');
+		input.setAttribute('type','number');
+
 		inputs[i].parentNode.insertBefore(input, inputs[i].nextSibling);
 	}
 	matrix_size++;
@@ -91,7 +95,7 @@ function addLevel()
 
 	for(var i = 0; i<matrix_size;i++)
 	{
-		matrixDiv.innerHTML += "<input class=\"matrix-input\" onfocus=\"changeMatrixInputStyleOnFocus(this)\" type=\"text\"></input>";
+		matrixDiv.innerHTML += "<input class=\"matrix-input\" type=\"number\"  onfocus=\"changeMatrixInputStyleOnFocus(this)\" type=\"text\"></input>";
 	}	
 	matrixDiv.innerHTML += "</br>";	
 	for(i = 0; i < matrix_size-1; i++) 
@@ -108,7 +112,7 @@ function initializeMatrix()
 	for(var i = 0;i<matrix_size;i++)
 	{
 		for(var j = 0; j<matrix_size;j++)
-			matrixDiv.innerHTML += "<input class=\"matrix-input\" onfocus=\"changeMatrixInputStyleOnFocus(this)\" type=\"text\"></input>";
+			matrixDiv.innerHTML += "<input class=\"matrix-input\"type=\"number\" onfocus=\"changeMatrixInputStyleOnFocus(this)\" type=\"text\"></input>";
 		matrixDiv.innerHTML += "</br>";
 	}
 }
