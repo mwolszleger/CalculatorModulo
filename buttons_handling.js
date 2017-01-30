@@ -55,7 +55,14 @@ function performOperationClick(ev)
 			
 		case "-x":
 			if(!last_equal)
+			{
+				if(first_operator_flag)
+				{
+					display_value = display_element.value;
+					first_operator_flag = false;
+				}
 				display_element.value = oppositeElement(parseFloat(display_value), parseFloat(modulo_element.value));
+			}
 			else
 				last_equal = false;
 			break;
@@ -63,6 +70,11 @@ function performOperationClick(ev)
 		case "1/x":
 			if(!last_equal)
 			{
+				if(first_operator_flag)
+				{
+					display_value = display_element.value;
+					first_operator_flag = false;
+				}
 				if(inverseElement(parseFloat(display_value), parseFloat(modulo_element.value)) == "Brak elementu odwrotnego")
 					display_element.className = "input-alert"
 				else
