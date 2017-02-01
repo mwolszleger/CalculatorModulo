@@ -54,6 +54,10 @@ function determinant(matrix, n) {
         res = subtraction(multiplication(matrix[0][0], matrix[1][1], n), multiplication(matrix[0][1], matrix[1][0], n), n);
         return res;
     }
+	if (matrix.length == 1) {
+        
+        return matrix[0][0];
+    }
     else if (matrix.length > 2) {
         var det = 0;
         var tempMat = new Array(matrix.length - 1);
@@ -115,7 +119,9 @@ function inverseMatrix(matrix, n) {
                     tempMat[k][l] = matrix[x][y];
                 }
             }
+			
             inverse[j][i] = determinant(tempMat, n);
+			
             if (i + j % 2 == 1)
                 inverse[j][i] *= -1;
             inverse[j][i] = multiplication(inverseDet, inverse[j][i], n);
